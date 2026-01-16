@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="Купить топливные брикеты в Бельцах. Ștefan cel Mare 137. Экологичное отопление по выгодной цене.">
+    <title>EcoBurn — Brichete de Combustibil | Bălți, Ștefan cel Mare 137</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --accent: #f39c12;
+            --accent-hover: #e67e22;
+            --dark: #1a1a1a;
+            --light: #f9f9f9;
+            --text: #333;
+            --white: #ffffff;
+            --green: #27ae60;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Montserrat', sans-serif; color: var(--text); background: var(--white); overflow-x: hidden; line-height: 1.6; transition: opacity 0.3s; }
+
+        .container { width: 92%; max-width: 1200px; margin: auto; }
+        
+        /* HEADER */
+        header {
+            position: fixed; width: 100%; top: 0; z-index: 2000;
+            background: rgba(26, 26, 26, 0.98); backdrop-filter: blur(10px);
+            padding: 12px 0; border-bottom: 2px solid var(--accent);
+        }
+        .flex-nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-weight: 900; font-size: clamp(1.2rem, 5vw, 1.8rem); color: var(--white); text-decoration: none; }
+        .logo span { color: var(--accent); }
+
+        .lang-switcher button {
+            background: transparent; border: 1.5px solid var(--accent); color: var(--white);
+            padding: 6px 14px; cursor: pointer; border-radius: 20px; font-weight: 600; margin-left: 5px;
+            transition: 0.3s; font-size: 0.85rem;
+        }
+        .lang-switcher button.active { background: var(--accent); }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), 
+                        url('https://images.unsplash.com/photo-1542332213-9b5a5a3fad35?auto=format&fit=crop&q=80&w=1200');
+            background-size: cover; background-position: center;
+            display: flex; align-items: center; justify-content: center; text-align: center; color: white;
+            padding: 100px 15px 60px;
+        }
+        .hero-content h1 { font-size: clamp(2rem, 9vw, 4.5rem); font-weight: 900; line-height: 1.1; margin-bottom: 25px; }
+
+        .btn {
+            display: inline-block; padding: 18px 40px; background: var(--accent); color: white;
+            text-decoration: none; border-radius: 50px; font-weight: 800; text-transform: uppercase;
+            box-shadow: 0 8px 15px rgba(243, 156, 18, 0.3); transition: 0.3s; border: none; cursor: pointer;
+            text-align: center;
+        }
+
+        /* CATALOG */
+        .section-padding { padding: 80px 0; }
+        .section-title { text-align: center; font-size: clamp(1.8rem, 8vw, 3rem); margin-bottom: 45px; font-weight: 900; }
+        .product-stack { display: flex; flex-direction: column; align-items: center; gap: 20px; max-width: 500px; margin: 0 auto; }
+        .card { background: var(--white); border-radius: 25px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 1px solid #eee; width: 100%; }
+        .card-img-wrapper { width: 100%; height: 300px; overflow: hidden; }
+        .card img { width: 100%; height: 100%; object-fit: cover; }
+        .card-info { padding: 25px; text-align: center; }
+        .price-tag { font-size: 1.8rem; color: var(--green); font-weight: 900; margin: 10px 0; }
+
+        /* CALC */
+        .calc-box { background: #fff; padding: 20px 30px; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border: 1.5px solid var(--accent); width: 100%; text-align: center; }
+        .ton-display { font-size: 1.3rem; font-weight: 800; color: var(--dark); margin-bottom: 5px; }
+        .slider { -webkit-appearance: none; width: 100%; height: 8px; border-radius: 5px; background: #eee; outline: none; margin: 15px 0; }
+        .slider::-webkit-slider-thumb { -webkit-appearance: none; width: 22px; height: 22px; border-radius: 50%; background: var(--accent); cursor: pointer; border: 3px solid var(--white); box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+        .calc-result { background: var(--light); padding: 12px; border-radius: 12px; font-size: 1.5rem; font-weight: 900; color: var(--green); margin-top: 10px; }
+
+        /* WIDGETS */
+        .widgets { position: fixed; bottom: 20px; right: 20px; z-index: 3000; display: flex; flex-direction: column; gap: 12px; }
+        .w-btn { width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; color: white; text-decoration: none; box-shadow: 0 5px 15px rgba(0,0,0,0.3); transition: 0.3s; }
+        
+        /* FOOTER & MAP */
+        footer { background: var(--dark); color: white; padding: 50px 0 30px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        input, textarea { width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #ddd; margin-bottom: 12px; font-family: inherit; font-size: 1rem; }
+        .map-container { width: 100%; height: 400px; border-radius: 20px; overflow: hidden; margin-top: 30px; border: 2px solid var(--accent); }
+    </style>
+</head>
+<body>
+
+    <div class="widgets">
+        <a href="https://wa.me/37378200474" class="w-btn" style="background: #25d366;" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="viber://chat?number=%2B37378200474" class="w-btn" style="background: #7360f2;"><i class="fab fa-viber"></i></a>
+    </div>
+
+    <header>
+        <div class="container flex-nav">
+            <a href="#" class="logo">🔥 ECO<span>BURN</span></a>
+            <div class="lang-switcher">
+                <button id="ru-btn" class="active" onclick="changeLang('ru')">RU</button>
+                <button id="ro-btn" onclick="changeLang('ro')">RO</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1 id="txt-h1">Жарче огня, <br> экономнее дров</h1>
+            <p id="txt-h-sub" style="margin-bottom: 30px; font-size: 1.2rem;">Бельцы, bd. Ștefan cel Mare 137. Премиальные топливные брикеты.</p>
+            <a href="#catalog" class="btn" id="txt-h-btn">Смотреть продукцию</a>
+        </div>
+    </section>
+
+    <main class="container section-padding">
+        <h2 class="section-title" id="txt-catalog-title">Наш Ассортимент</h2>
+        <div class="product-stack" id="catalog">
+            <div class="card" data-aos="fade-up">
+                <div class="card-img-wrapper">
+                    <img src="https://lemnsupermarket.ro/storage/9760/product-img-5408_61464.jpg" alt="Brichete">
+                </div>
+                <div class="card-info">
+                    <h3 style="font-weight: 800;">Brichete RUF Premium</h3>
+                    <p id="txt-p1-d" style="margin: 10px 0; color: #666;">Чистое топливо с высокой теплоотдачей.</p>
+                    <div class="price-tag">4 000 MDL / t</div>
+                    <a href="#order" class="btn" style="width: 100%; padding: 14px;" id="txt-buy1">Заказать в WhatsApp</a>
+                </div>
+            </div>
+
+            <div class="calc-box" data-aos="fade-up">
+                <p id="txt-calc-sub" style="font-weight: 600; font-size: 0.9rem; margin-bottom: 10px;">Расчет стоимости:</p>
+                <div class="ton-display"><span id="ton-value">1</span> <span id="txt-ton-unit">тонн(а)</span></div>
+                <input type="range" min="1" max="20" value="1" class="slider" id="ton-slider" oninput="updateCalc()">
+                <div class="calc-result">
+                    <span id="txt-total">Итого</span>: <span id="total-price">4000</span> MDL
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <section id="order" class="section-padding" style="background: var(--light);">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; align-items: center;">
+                <div data-aos="fade-right">
+                    <h2 style="font-size: 2.2rem; margin-bottom: 15px;" id="txt-f-title">Сделать заказ</h2>
+                    <p id="txt-f-sub">Напишите ваше имя и количество тонн. Кнопка откроет WhatsApp чат.</p>
+                </div>
+                <form id="whatsappForm" class="card" style="padding: 25px;" data-aos="fade-left">
+                    <input type="text" id="form-name" placeholder="Ваше имя" required>
+                    <input type="number" id="form-qty" placeholder="Сколько тонн?" min="1" required>
+                    <textarea id="form-msg" placeholder="Ваше сообщение или адрес доставки" rows="3"></textarea>
+                    <button type="submit" class="btn" style="width: 100%; background: #25d366; border: none;" id="txt-f-btn">
+                        <i class="fab fa-whatsapp"></i> Отправить в WhatsApp
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3 style="color:var(--accent); margin-bottom:15px;">ECOBURN BĂLȚI</h3>
+                    <p id="txt-footer-about">Высококачественные брикеты для экономного отопления.</p>
+                </div>
+                <div>
+                    <h3 id="txt-contacts" style="margin-bottom:15px;">Контакты</h3>
+                    <p><i class="fas fa-map-marker-alt" style="color:var(--accent); width:20px;"></i> Bălți, bd. Ștefan cel Mare 137</p>
+                    <p><a href="tel:+37378200474" style="color:white; text-decoration:none;"><i class="fas fa-phone" style="color:var(--accent); width:20px;"></i> +373 78 200 474</a></p>
+                </div>
+            </div>
+
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2698.8101438287615!2d27.91742937684073!3d47.76569107718047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40cb60662d515a81%3A0xc39958066f19476b!2sStrada%20%C8%98tefan%20cel%20Mare%20137%2C%20B%C4%83l%C8%9Bi!5e0!3m2!1sru!2smd!4v1700000000000!5m2!1sru!2smd" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            
+            <p style="text-align: center; margin-top: 40px; opacity: 0.6; font-size: 0.8rem;">© 2026 EcoBurn Moldova. Bălți, Ștefan cel Mare 137.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+
+        const pricePerTon = 4000;
+        function updateCalc() {
+            const val = document.getElementById('ton-slider').value;
+            document.getElementById('ton-value').innerText = val;
+            document.getElementById('total-price').innerText = (val * pricePerTon).toLocaleString();
+            document.getElementById('form-qty').value = val; // Синхронизируем с формой
+        }
+
+        const translations = {
+            ru: {
+                h1: "Жарче огня, <br> экономнее дров",
+                hSub: "Бельцы, bd. Ștefan cel Mare 137. Премиальные топливные брикеты.",
+                hBtn: "Смотреть продукцию",
+                catTitle: "Наш Ассортимент",
+                p1d: "Чистое топливо с высокой теплоотдачей.",
+                buy: "Заказать в WhatsApp",
+                calcSub: "Расчет стоимости:",
+                tonUnit: "тонн(а)", total: "Итого",
+                fTitle: "Сделать заказ", fSub: "Напишите ваше имя и количество тонн. Кнопка откроет WhatsApp чат.",
+                fBtn: "Отправить в WhatsApp",
+                fName: "Ваше имя", fQty: "Сколько тонн?", fMsg: "Ваше сообщение или адрес доставки",
+                contacts: "Контакты", footerAbout: "Высококачественные брикеты для экономного отопления."
+            },
+            ro: {
+                h1: "Mai cald ca focul, <br> mai econom ca lemnele",
+                hSub: "Bălți, bd. Ștefan cel Mare 137. Brichete premium.",
+                hBtn: "Vezi produsele",
+                catTitle: "Sortimentul Nostru",
+                p1d: "Combustibil pur cu putere calorică mare.",
+                buy: "Comandă pe WhatsApp",
+                calcSub: "Calcul cost:",
+                tonUnit: "tone", total: "Total",
+                fTitle: "Plasează comanda", fSub: "Scrieți numele și cantitatea. Butonul va deschide WhatsApp.",
+                fBtn: "Trimite pe WhatsApp",
+                fName: "Numele dvs.", fQty: "Câte tone?", fMsg: "Mesajul dvs. sau adresa de livrare",
+                contacts: "Contacte", footerAbout: "Brichete de înaltă calitate pentru încălzire economă."
+            }
+        };
+
+        let currentLang = 'ru';
+        function changeLang(lang) {
+            currentLang = lang;
+            const t = translations[lang];
+            document.getElementById('txt-h1').innerHTML = t.h1;
+            document.getElementById('txt-h-sub').innerText = t.hSub;
+            document.getElementById('txt-h-btn').innerText = t.hBtn;
+            document.getElementById('txt-catalog-title').innerText = t.catTitle;
+            document.getElementById('txt-p1-d').innerText = t.p1d;
+            document.getElementById('txt-buy1').innerText = t.buy;
+            document.getElementById('txt-calc-sub').innerText = t.calcSub;
+            document.getElementById('txt-ton-unit').innerText = t.tonUnit;
+            document.getElementById('txt-total').innerText = t.total;
+            document.getElementById('txt-f-title').innerText = t.fTitle;
+            document.getElementById('txt-f-sub').innerText = t.fSub;
+            document.getElementById('txt-f-btn').innerHTML = `<i class="fab fa-whatsapp"></i> ${t.fBtn}`;
+            document.getElementById('txt-contacts').innerText = t.contacts;
+            document.getElementById('txt-footer-about').innerText = t.footerAbout;
+            
+            document.getElementById('form-name').placeholder = t.fName;
+            document.getElementById('form-qty').placeholder = t.fQty;
+            document.getElementById('form-msg').placeholder = t.fMsg;
+
+            document.getElementById('ru-btn').classList.toggle('active', lang === 'ru');
+            document.getElementById('ro-btn').classList.toggle('active', lang === 'ro');
+        }
+
+        // ОТПРАВКА В WHATSAPP
+        document.getElementById('whatsappForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('form-name').value;
+            const qty = document.getElementById('form-qty').value;
+            const msg = document.getElementById('form-msg').value;
+            const phone = "37378200474"; // Ваш номер
+            
+            const text = `Здравствуйте! Меня зовут ${name}. %0AЯ хочу заказать брикеты: ${qty} т. %0AКомментарий: ${msg}`;
+            const whatsappUrl = `https://wa.me/${phone}?text=${text}`;
+            
+            window.open(whatsappUrl, '_blank');
+        });
+    </script>
+</body>
+</html>
